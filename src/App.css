@@ -87,6 +87,43 @@ button:hover {
 }
 
 .search {
-
+    height: 25px;
     width: 550px;
+}
+
+.footer {
+    background-color: rgb(17, 17, 17);
+    color: #FFFFFF;
+
+
+}
+
+.footer img {
+    width: 80px;
+    border-radius: 20%;
+}
+
+#line {
+    border: 1px solid #FFFFFF;
+    margin: 2em 10em;
+
+    color: #FFFFFF;
+}
+
+.cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 10px 150px;
+}
+
+.cont ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cont li {
+    margin: 0 20px;
 }

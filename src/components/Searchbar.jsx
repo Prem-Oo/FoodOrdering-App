@@ -10,7 +10,7 @@ const Searchbar = ({ resData, setRestaurent }) => {
     }
     return <>
         <div className="search-container">
-            <input type="text" className="search" value={search} onChange={(e) => setSearch(e.target.value)} />
+            <input type="text" className="search" placeholder="search for restaurents" value={search} onChange={(e) => setSearch(e.target.value)} />
             <button className="button" onClick={handleSearch}>SEARCH</button>
         </div>
     </>
