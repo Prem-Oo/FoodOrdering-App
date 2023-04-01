@@ -59,6 +59,7 @@ import { useState } from "react";
 function App() {
   const [restaurent, setRestaurent] = useState(resList);
   // setRestaurent is passed as prop to child ( to access data inside child or { passing data from child to parent :)... })
+
   return (
     <div className="App">
       <Header />
