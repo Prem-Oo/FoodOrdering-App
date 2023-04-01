@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-const Searchbar = ({ resData, setRestaurent }) => {
-    // setRestaurent is a Parent Component function using in child to access child data(filteredList)
+const Searchbar = ({ resData, setResFiltered }) => {
+    // setResFiltered is a Parent Component function using in child to access child data(filteredList)
     const [search, setSearch] = useState('');
+    console.log(resData)
     const handleSearch = () => {
-        search.length === 0 ? setRestaurent(resData) : setRestaurent(resData.filter((resObj) => resObj.data.name.toLowerCase().includes(search.toLowerCase())))
+        search.length === 0 ? setResFiltered(resData) : setResFiltered(resData.filter((resObj) => resObj.data.name.toLowerCase().includes(search.toLowerCase())))
 
         setSearch('');
     }

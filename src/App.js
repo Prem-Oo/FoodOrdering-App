@@ -4,7 +4,9 @@ import { resList } from "./components/config";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Searchbar from "./components/Searchbar";
-import { useState } from "react";
+import Loading from "./components/Loading";
+import { useEffect, useState } from "react";
+
 /*HEADER
       --Logo
       --nav-items  
@@ -57,16 +59,37 @@ import { useState } from "react";
 // }
 
 function App() {
-  const [restaurent, setRestaurent] = useState(resList);
+  const [isloading, setIsloadig] = useState(false);
+  const [restaurent, setRestaurent] = useState(resList);// original
+  const [resFiltered, setResFiltered] = useState(resList);// filtered
+  // restaurent is a filtered data, initially set to resList.
   // setRestaurent is passed as prop to child ( to access data inside child or { passing data from child to parent :)... })
 
+  useEffect(() => {
+    const getAPI = async () => {
+      try {
+        setIsloadig(true)
+        const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.5061743&lng=80.6480153&page_type=DESKTOP_WEB_LISTING");
+        const jsonData = await response.json();
+        // console.log(jsonData);
+        // console.log(jsonData.data.cards[2].data.data.cards);
+        setRestaurent(jsonData?.data?.cards[2]?.data?.data?.cards)
+        setResFiltered(jsonData?.data?.cards[2]?.data?.data?.cards)
+        setIsloadig(false)
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getAPI();
+  }, [])
   return (
     <div className="App">
       <Header />
-      <Searchbar resData={resList} setRestaurent={setRestaurent} />
-      <div className="container">
-        {restaurent.map((resObj) => <Restaurent key={resObj.data.id} resData={resObj} />)}
-      </div>
+      <Searchbar resData={restaurent} setResFiltered={setResFiltered} />
+      {isloading ? <Loading /> : <div className="container">
+        {resFiltered.map((resObj) => <Restaurent key={resObj.data.id} resData={resObj} />)}
+      </div>}
+
       <Footer />
     </div>
   );
