@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 const Header = () => {
     const [title, setTitle] = useState('FoodApp');
     //console.log('Header rendered')
@@ -9,9 +9,10 @@ const Header = () => {
             <h2 onClick={() => setTitle('New FoodApp')}>{title}</h2>
             <nav>
                 <ul>
-                    <li>HOME</li>
-                    <li>ABOUT</li>
-                    <li>CART</li>
+                    <Link to={'/'}>HOME</Link>
+                    <Link to={'/about'}>ABOUT</Link>
+                    <Link to={'/contact'}>CONTACT</Link>
+                    <Link to={'/cart'}>CART</Link>
                 </ul>
             </nav>
         </header>

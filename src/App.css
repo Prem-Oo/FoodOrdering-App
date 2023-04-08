@@ -16,13 +16,23 @@
 
 nav>ul {
     display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+    gap: 50px;
 }
 
-nav>ul>li {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+nav>ul>a {
+
+    border-radius: 5px;
     margin: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+nav>ul>a:hover {
+    background-color: white;
+
+    color: black;
 }
 
 #star {
@@ -44,6 +54,7 @@ nav>ul>li {
 .card:hover {
     border: 1px solid black;
     cursor: pointer;
+    box-shadow: 5px 5px 5px rgb(167, 166, 166);
 }
 
 .card>img {
@@ -132,4 +143,9 @@ button:hover {
     width: 100%;
     text-align: center;
     height: 50%;
+}
+
+.container a {
+    text-decoration: none;
+    color: black;
 }
