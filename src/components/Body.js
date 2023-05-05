@@ -4,12 +4,13 @@ import Restaurent from "./Restaurent";
 import Loading from "./Loading";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 const Body = () => {
     const [isloading, setIsloadig] = useState(false);
     const [restaurent, setRestaurent] = useState(resList);// original
     const [resFiltered, setResFiltered] = useState(resList);// filtered
     // restaurent is a filtered data, initially set to resList.
-    // setRestaurent is passed as prop to child ( to access data inside child or { passing data from child to parent :)... })
+    // setRestaurent is passed as prop to child ( to access data inside body(parent) or { passing data from child to parent :)... })
 
     useEffect(() => {
         const getAPI = async () => {
@@ -28,7 +29,10 @@ const Body = () => {
         }
         getAPI();
     }, [])
-
+    const online = useOnline();
+    if (!online) {
+        return <h1> plz check your connection!! you are offline</h1>
+    }
     return <>
         <Searchbar resData={restaurent} setResFiltered={setResFiltered} />
         {isloading ? <Loading /> : <div className="container">

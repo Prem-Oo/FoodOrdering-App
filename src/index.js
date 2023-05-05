@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
@@ -14,7 +14,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from './components/Error';
 import RestaurentMenu from './components/RestaurentMenu';
-
+// import Cart from './components/Cart';
 /*HEADER
       --Logo
       --nav-items  
@@ -66,6 +66,9 @@ import RestaurentMenu from './components/RestaurentMenu';
 //   time: '20'
 // }
 
+
+const Cart = lazy(() => { return import("./components/Cart.js") });
+
 function App() {
 
     return (
@@ -94,6 +97,12 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />
+            },
+            {
+                path: "/cart",
+                element: (<Suspense>
+                    <Cart />
+                </Suspense>)
             },
             {
                 path: "/restaurents/:resID",
