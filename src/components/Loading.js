@@ -1,4 +1,4 @@
-import { ShimmerSimpleGallery } from "react-shimmer-effects"
+import { ShimmerSimpleGallery } from "react-shimmer-effects-18"
 const Loading = () => {
     return <>
         <div className="loading">

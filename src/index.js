@@ -14,6 +14,9 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from './components/Error';
 import RestaurentMenu from './components/RestaurentMenu';
+
+import appStore from './utils/appStore';
+import { Provider } from 'react-redux';
 // import Cart from './components/Cart';
 /*HEADER
       --Logo
@@ -28,43 +31,6 @@ import RestaurentMenu from './components/RestaurentMenu';
       --links
     https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.5061743&lng=80.6480153&page_type=DESKTOP_WEB_LISTING
 */
-// const resList = [
-//   {
-//     name: 'Paradise Biriyani',
-//     img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/lnnqnw14nplf6hvfta1i",
-//     rating: '3.9',
-//     price: 250,
-//     time: '20'
-//   },
-//   {
-//     name: 'Dolphin Restaurent',
-//     img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/i7n1ckfopgxmyyotm7l7",
-//     rating: '3.7',
-//     price: 300,
-//     time: '20'
-//   },
-//   {
-//     name: 'Burger King',
-//     img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/q95f1njeqnsh49htlfy1",
-//     rating: '4.0',
-//     price: 350,
-//     time: '20'
-//   },
-//   {
-//     name: 'Sri Anjaneya Restaurent',
-//     img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/fegslpx8w0jxuixclwb4",
-//     rating: '3.9',
-//     price: 400,
-//     time: '20'
-//   },
-// ]
-// const resObj = {
-//   name: 'Dolphin Restaurent',
-//   img: "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/lnnqnw14nplf6hvfta1i",
-//   rating: '4.0',
-//   price: 400,
-//   time: '20'
-// }
 
 
 const Cart = lazy(() => { return import("./components/Cart.js") });
@@ -72,11 +38,13 @@ const Cart = lazy(() => { return import("./components/Cart.js") });
 function App() {
 
     return (
-        <div className="App">
-            <Header />
-            <Outlet />  {/*// outlet maps with children based on the route path. */}
-            <Footer />
-        </div>
+        <Provider store={appStore}>
+            <div className="App">
+                <Header />
+                <Outlet />  {/*// outlet maps with children based on the route path. */}
+                <Footer />
+            </div>
+        </Provider>
     );
 }
 const appRouter = createBrowserRouter([
