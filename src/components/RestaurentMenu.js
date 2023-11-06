@@ -10,11 +10,11 @@ const RestaurentMenu = () => {
     const menu = useRestraunt(resID);// fetches total restraunt menu.
 
     const restaurentData = menu?.data?.cards[0]?.card?.card?.info;//restraunt info.
-    console.log(restaurentData)
+    // console.log(restaurentData)
     const { avgRating, cloudinaryImageId, name, costForTwoMessage, cuisines, totalRatingsString, sla } = restaurentData || {}
     const menuList = menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;// accordian items.
     const categories = menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")// filtering items only of @type ItemCategory
-    console.log(categories)
+    // console.log(categories)
 
 
     return (!menu) ? <Loading /> : (<>

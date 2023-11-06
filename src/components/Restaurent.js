@@ -1,9 +1,9 @@
-import '../'
+
 import { IMG_URL } from './config';
 const Restaurent = (props) => {
 
     const { name, cloudinaryImageId, avgRating, sla, costForTwo, cuisines } = props.resData.info;
-    console.log(props.resData.info)
+    // console.log(props.resData.info)
     return (<>
 
         <div className="w-64 h-80 p-4 border justify-between shadow-md m-8 transition  hover:scale-105 hover:shadow-lg ">
