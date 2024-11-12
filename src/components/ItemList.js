@@ -39,7 +39,7 @@ const ItemList = ({ items }) => {
                                 Add +
                             </button>
                         </div>
-                        <img src={IMG_URL + item.card.info.imageId} className="w-full" />
+                        <img src={IMG_URL + item.card.info.imageId} alt='image' className="w-full" />
                     </div>
                 </div>
             ))}
