@@ -7,9 +7,11 @@ const useRestraunt = (resID) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
+                // console.log("useRestaurent()-- Menu")
+                // console.log(resID);
                 const data = await fetch(FETCH_MENU_URL + resID);
                 const json = await data.json();
-                console.log(json);
+                // console.log(json);
                 setMenu(json);
 
             } catch (error) {

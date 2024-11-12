@@ -6,14 +6,15 @@ import RestaurentCategory from "./RestaurentCategory";
 const RestaurentMenu = () => {
     // reading url from useParams
     const { resID } = useParams();
+    // console.log("Res-Menu");
+    // console.log(resID);
     // custom hook to reduce code and modularity
     const menu = useRestraunt(resID);// fetches total restraunt menu.
-
-    const restaurentData = menu?.data?.cards[0]?.card?.card?.info;//restraunt info.
-    // console.log(restaurentData)
+    // console.log(menu)
+    const restaurentData = menu?.data?.cards[2]?.card?.card?.info;//restraunt info.
     const { avgRating, cloudinaryImageId, name, costForTwoMessage, cuisines, totalRatingsString, sla } = restaurentData || {}
     const menuList = menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;// accordian items.
-    const categories = menu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")// filtering items only of @type ItemCategory
+    const categories = menu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")// filtering items only of @type ItemCategory
     // console.log(categories)
 
 

@@ -17,7 +17,7 @@ const Cart = () => {
             </Link>
             <p className="mt-4 text-gray-500 text-center">Looks like you have not added anything to your cart. Go ahead and explore the restaurants. </p>
 
-            <img className="w-1/2" src="https://assets.materialup.com/uploads/16e7d0ed-140b-4f86-9b7e-d9d1c04edb2b/preview.png" alt="empty-cart" />
+            <img className="w-1/2" src="https://static.vecteezy.com/system/resources/previews/016/462/240/non_2x/empty-shopping-cart-illustration-concept-on-white-background-vector.jpg" alt="empty-cart" />
         </div>
     );
     return <>

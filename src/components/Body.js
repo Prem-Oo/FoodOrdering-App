@@ -18,11 +18,11 @@ const Body = () => {
                 setIsloadig(true)
                 const response = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=16.5242903&lng=80.6169565&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
                 const jsonData = await response.json();
+                console.log("API Data");
                 const cards4Restaurants = jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
                 const cards5Restaurants = jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
                 const restaurants = cards4Restaurants || cards5Restaurants;
-
                 setRestaurent(restaurants);
                 setResFiltered(restaurants);
                 setIsloadig(false)
@@ -37,7 +37,7 @@ const Body = () => {
     if (!online) {
         return <h1> plz check your connection!! you are offline</h1>
     }
-    console.log(resFiltered)
+    // console.log(resFiltered)
     if (isloading) return <Loading />
     return <>
         <Searchbar resData={restaurent} setResFiltered={setResFiltered} />
