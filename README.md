@@ -1,5 +1,32 @@
-Swiggy Clone (Frontend)
-This project is a clone of the Swiggy frontend. It uses the live Swiggy API to fetch real-time restaurant data and menus. Key features and functionalities include Redux Toolkit for cart and state management, React Router DOM for smooth routing and navigation, Shimmer UI for an enhanced user experience, and more.
+# Foodify
+This project uses the live Swiggy API to fetch real-time data(up to date). Key features and functionalities include Redux Toolkit for cart and state management, React Router DOM for smooth routing and navigation, Shimmer UI for an enhanced user experience, and more.
+
+## Overview
+Foodify is a React application built using the real-time Swiggy Live API. The app offers efficient state management with Redux Toolkit, employs Shimmer UI for a seamless user experience, and is optimized using lazy loading techniques. It also includes an accordion feature and a shopping cart functionality.
+
+## Features
+- Real-time Swiggy Live API integration
+- Efficient state management with Redux Toolkit
+- Shimmer UI for smooth loading experience
+- Lazy loading optimization
+- Accordion feature
+- Shopping cart functionality
+
+## Tech Stack
+- React
+- React Router
+- Redux Toolkit
+- Tailwind CSS
+
+## Live Demo
+Check out the live demo [here](https://prem-food-ordering.netlify.app/)
+
+## Getting Started
+To get a local copy up and running, follow these simple steps:
+
+1. Clone the repository:
+   ```sh
+   git clone [https://github.com/your-username/your-repo.git](https://github.com/Prem-Oo/FoodOrdering-App.git)
 
 Getting Started:
 Follow these steps to clone and run the project on your local machine:
