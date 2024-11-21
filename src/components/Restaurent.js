@@ -8,7 +8,7 @@ const Restaurent = (props) => {
     return (<>
 
         <div className="w-64 h-85 p-4 border justify-between shadow-md m-8 transition  hover:scale-105 hover:shadow-lg ">
-            <img className='rounded-sm w-full h-40 object-cover' src={IMG_URL + cloudinaryImageId} alt="food-image" />
+            <img className='rounded-sm w-full h-40 object-cover' src={IMG_URL + cloudinaryImageId} alt="restaurant" />
             <p className='text-sm font-semibold my-2'>{name}</p>
             <p className='text-gray-600 text-xs my-2'>{cuisines.join(', ')}</p>
             <div className="flex items-center justify-between mt-2">

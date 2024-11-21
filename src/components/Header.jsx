@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import useQuantity from "../utils/useQuantity";
 const Header = () => {
-    const [title, setTitle] = useState('FoodApp');
+    const [title, setTitle] = useState('Foodify');
 
     const cartItems = useSelector((store) => store.cart.items);
-    //console.log('Header rendered')
+    
+    const quantity=useQuantity(cartItems);
+
     const isOnline = useOnline();
     return (<>
         <header className="bg-slate-900 text-white p-4 flex items-center justify-between">
@@ -20,7 +23,7 @@ const Header = () => {
             </Link>
             <h2
                 className="text-2xl font-semibold cursor-pointer"
-                onClick={() => setTitle('New FoodApp')}
+                onClick={() => setTitle("Prem's Foodify App")}
             >
                 {title} {isOnline ? '🟢' : '🔴'}
             </h2>
@@ -30,7 +33,7 @@ const Header = () => {
                     <Link className="transition hover:text-yellow-300" to={'/'}>HOME</Link>
                     <Link className="transition hover:text-yellow-300" to={'/about'}>ABOUT</Link>
                     <Link className="transition hover:text-yellow-300" to={'/contact'}>CONTACT</Link>
-                    <Link className="transition hover:text-yellow-300" to={'/cart'}><ShoppingCartIcon />{cartItems.length}</Link>
+                    <Link className="transition hover:text-yellow-300" to={'/cart'}><ShoppingCartIcon />{quantity}</Link>
                 </ul>
             </nav>
         </header>

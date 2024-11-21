@@ -19,7 +19,7 @@ Foodify is a React application built using the real-time Swiggy Live API. The ap
 - Tailwind CSS
 
 ## Live Demo
-Check out the live demo [here](https://prem-food-ordering.netlify.app/)
+Check out the live demo [here](https://prem-food-ordering.netlify.app/) use cors extension
 
 ## Getting Started
 To get a local copy up and running, follow these simple steps:
@@ -69,5 +69,5 @@ Online/Offline Functionality
 Tailwind CSS: Stylish and interactive user interface.
 Lazy Loading: Efficiently loading components when needed.
 Custom Hooks: Optimizing code splitting and chunking.
-Feel free to explore the code, customize it, and contribute to the project.
+Feel free to explore the code, customize it, Happy Coding :)
 

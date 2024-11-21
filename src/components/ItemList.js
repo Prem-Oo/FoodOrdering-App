@@ -2,12 +2,20 @@ import React from 'react'
 import { IMG_URL } from './config';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../utils/cartSlice';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 const ItemList = ({ items }) => {
 
+    const [showPopup, setShowPopup] = useState(false);
+
+    const cartItems = useSelector((store) => store.cart.items);
     const dispatch = useDispatch();
-    const handleAddItem = (item) => {
+    // console.log(items);
+    const handleAddItem = (cardItem) => {
         // Dispatch an action
-        dispatch(addItem(item));
+        dispatch(addItem(cardItem));
+        setShowPopup(true); 
+        setTimeout(() => { setShowPopup(false); }, 3000);
     };
 
     return (
@@ -34,12 +42,15 @@ const ItemList = ({ items }) => {
                         <div className="absolute">
                             <button
                                 className="p-1 mx-16 rounded-lg bg-black text-white shadow-lg hover:bg-slate-800"
-                                onClick={() => handleAddItem(item)}
+                                onClick={() => handleAddItem(item?.card?.info)}
                             >
                                 Add +
                             </button>
                         </div>
-                        <img src={IMG_URL + item.card.info.imageId} alt='image' className="w-full" />
+                        <img src={IMG_URL + item.card.info.imageId} alt='restro' className="w-24 h-24 rounded-md" />
+                        {showPopup &&
+                         ( <div className="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-lg animate-bounce">
+                             Added to Cart {cartItems.length} </div> )}
                     </div>
                 </div>
             ))}

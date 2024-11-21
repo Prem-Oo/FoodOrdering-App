@@ -19,7 +19,7 @@ const useRestraunt = (resID) => {
             }
         }
         fetchData();
-    }, []);
+    }, [resID]);
     return menu;
 }
 

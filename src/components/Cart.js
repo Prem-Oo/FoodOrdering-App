@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import ItemList from "./ItemList";
+import CartDetails from "./CartDetails";
 import { useDispatch } from 'react-redux';
 import { clearCart } from '../utils/cartSlice';
 import { Link } from "react-router-dom";
@@ -7,6 +7,8 @@ const Cart = () => {
 
     const cartItems = useSelector((store) => store.cart.items);
     const dispatch = useDispatch();
+    // console.log("Cart rendered...")
+    // console.log(cartItems);
 
     if (cartItems.length === 0) return (
         <div className="flex flex-col items-center justify-center">
@@ -21,12 +23,16 @@ const Cart = () => {
         </div>
     );
     return <>
-        <div className="flex flex-col items-center justify-center h-screen">
-            <button className="bg-slate-800 text-white p-3 rounded-md hover:bg-slate-900" onClick={() => dispatch(clearCart())}>
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+            <button
+                className="mb-6 bg-slate-800 text-white p-3 rounded-md hover:bg-slate-900 transition"
+                onClick={() => dispatch(clearCart())}
+            >
                 Empty Cart
             </button>
-            <ItemList items={cartItems} />
+            <CartDetails cartItems={cartItems} />
         </div>
     </>
+    
 }
 export default Cart;

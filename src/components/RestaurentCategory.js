@@ -1,14 +1,11 @@
 import React from 'react'
 import ItemList from './ItemList'
-import { useState } from 'react'
-const RestaurentCategory = ({ data }) => {
+const RestaurentCategory = ({ data,expanded,setExpanded,index }) => {
 
     const { title, itemCards } = data
 
-    const [expanded, setExpanded] = useState(false);
-
     const toggleAccordion = () => {
-        setExpanded(!expanded);
+        setExpanded(index);
     };
 
     return (
